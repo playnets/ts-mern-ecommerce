@@ -1,22 +1,22 @@
 //rfc
-import { Helmet } from "react-helmet-async";
-import { useParams } from "react-router-dom";
-import { useGetProductDetailsBySlugQuery } from "../hooks/productHook";
-import LoadingBox from "../components/LoadingBox";
-import MessageBox from "../components/MessageBox";
-import { getError } from "../types/utils";
-import { ApiError } from "../types/ApiError";
-import { Badge, Button, Card, Col, ListGroup, Row } from "react-bootstrap";
-import Rating from "../components/Rating";
+import { Helmet } from 'react-helmet-async'
+import { useParams } from 'react-router-dom'
+import { useGetProductDetailsBySlugQuery } from '../hooks/productHook'
+import LoadingBox from '../components/LoadingBox'
+import MessageBox from '../components/MessageBox'
+import { getError } from '../types/utils'
+import { ApiError } from '../types/ApiError'
+import { Badge, Button, Card, Col, ListGroup, Row } from 'react-bootstrap'
+import Rating from '../components/Rating'
 
 export default function ProductPage() {
-  const params = useParams();
-  const { slug } = params;
+  const params = useParams()
+  const { slug } = params
   const {
     data: product,
     isLoading,
     error,
-  } = useGetProductDetailsBySlugQuery(slug!);
+  } = useGetProductDetailsBySlugQuery(slug!)
 
   return isLoading ? (
     <LoadingBox />
@@ -86,5 +86,5 @@ export default function ProductPage() {
         </Col>
       </Row>
     </div>
-  );
+  )
 }
